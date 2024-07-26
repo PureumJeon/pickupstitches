@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>단-코 계산기</title>
+    <title>단-코 계산기😺</title>
     <link rel="stylesheet" href="./styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,14 +14,14 @@
   </head>
   <body>
     <div class="container">
-      <h1>단-코 계산기</h1>
+      <h1>단-코 계산기😺</h1>
       <label for="rows">단수 (rows):</label>
       <input type="number" id="rows" placeholder="예: 124" />
 
-      <label for="stitches">코수 (stitches):</label>
+      <label for="stitches">콧수 (stitches):</label>
       <input type="number" id="stitches" placeholder="예: 110" />
 
-      <button onclick="calculate()">계산</button>
+      <button onclick="calculate()">계산하기!😵</button>
 
       <div class="result" id="result"></div>
     </div>
@@ -40,7 +40,7 @@
           rows <= stitches
         ) {
           document.getElementById("result").innerHTML =
-            "<p>올바른 단수와 코수를 입력하세요.</p>";
+            "<p>올바른 단수와 콧수를 입력하세요!🙄</p>";
           return;
         }
 
@@ -55,15 +55,15 @@
         if (Number.isInteger(remainder)) {
           resultText = `<p>${baseInterval}단마다 ${
             baseInterval - 1
-          }코 줍고 1코를 건너뛰는 것을 ${
+          }코 줍고 1코를 건너뛰는 것을 <br>${
             diffrence - mainStitches
           }번 반복합니다.</p>`;
         } else {
           resultText = `<p>${
             baseInterval + 1
-          }단마다 ${baseInterval}코 줍고 1코를 건너뛰는 것을 ${mainStitches}번 반복합니다.</p><p>${baseInterval}단마다 ${
+          }단마다 ${baseInterval}코 줍고 1코를 건너뛰는 것을 <br>${mainStitches}번 반복합니다.</p><p>${baseInterval}단마다 ${
             baseInterval - 1
-          }코 줍고 1코를 건너뛰는 것을 ${
+          }코 줍고 1코를 건너뛰는 것을 <br>${
             diffrence - mainStitches
           }번 반복합니다.</p>`;
         }
