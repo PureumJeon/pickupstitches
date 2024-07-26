@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>단-코 계산기</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>단-코 계산기</h1>
+      <label for="rows">단수 (rows):</label>
+      <input type="number" id="rows" placeholder="예: 124" />
+
+      <label for="stitches">코수 (stitches):</label>
+      <input type="number" id="stitches" placeholder="예: 110" />
+
+      <button onclick="calculate()">계산</button>
+
+      <div class="result" id="result"></div>
+    </div>
+
+    <script>
+      function calculate() {
+        // Get input values
+        const rows = parseInt(document.getElementById("rows").value);
+        const stitches = parseInt(document.getElementById("stitches").value);
+
+        if (
+          isNaN(rows) ||
+          isNaN(stitches) ||
+          rows <= 0 ||
+          stitches <= 0 ||
+          rows <= stitches
+        ) {
+          document.getElementById("result").innerHTML =
+            "<p>올바른 단수와 코수를 입력하세요.</p>";
+          return;
+        }
+
+        // Calculate the base stitches per interval and the remainder
+        const diffrence = rows - stitches;
+        const baseInterval = Math.floor(rows / diffrence);
+        const remainder = rows / diffrence;
+        const mainStitches = rows - diffrence * baseInterval;
+
+        // Create the result strings based on the calculation
+
+        if (Number.isInteger(remainder)) {
+          resultText = `<p>${baseInterval}단마다 ${
+            baseInterval - 1
+          }코 줍고 1코를 건너뛰는 것을 ${
+            diffrence - mainStitches
+          }번 반복합니다.</p>`;
+        } else {
+          resultText = `<p>${
+            baseInterval + 1
+          }단마다 ${baseInterval}코 줍고 1코를 건너뛰는 것을 ${mainStitches}번 반복합니다.</p><p>${baseInterval}단마다 ${
+            baseInterval - 1
+          }코 줍고 1코를 건너뛰는 것을 ${
+            diffrence - mainStitches
+          }번 반복합니다.</p>`;
+        }
+        // Display the result
+        document.getElementById("result").innerHTML = resultText;
+      }
+    </script>
+  </body>
+  <footer>
+    <p>© goronut / studio purim</p>
+  </footer>
+</html>
